@@ -1,138 +1,116 @@
-/* Tema de rofi inspirado en gnome 
-- Enfocado a mostrar las apliciones instaladas en el sistema
-- Usando SF Pro Rounded 
-*/
-configuration {
-	font: "SF Pro Rounded 11";
-	drun-display-format: "{name}";
-	disable-history: true;
-	fullscreen: true;
-	hide-scrollbar: true;
-	modi: "drun";
-	show-icons: true;
-}
-
-/*Define los colores que usa el tema*/
 * {
-	Background: #00000060;
-	Foreground: #FEFFF1ff;
-	Transparent: #00000000;
-	Base: #000000c0;
-	Urgent: #EAC935FF;
+	blue: #0084ff;
+	magenta: #ff00e0;
+	purple: #a200ff;
+	green: #00eb00;
+	lightfg: #dddddd;
+	lightbg: #2d2d2d;
+	background-color: #00000000;
+	background: #00000000;
+	foreground: #d1d1d2;
+	
+	/*selected-normal-background:  var(blue);*/
+	selected-normal-background:  var(lightbg);
+	
+	spacing: 2;
+	selected-active-foreground:  var(lightfg);
+	separatorcolor:              var(foreground);
+	urgent-foreground:           var(magenta);
+	alternate-urgent-background: var(lightbg);
+	border-color:                var(foreground);
+	normal-background:           var(background);
+	alternate-active-background: var(lightbg);
+	active-foreground:           var(blue);
+	urgent-background:           var(background);
+	alternate-normal-foreground: var(foreground);
+	selected-active-background:  var(blue);
+	selected-normal-foreground:  var(lightfg);
+	active-background:           var(background);
+	alternate-active-foreground: var(blue);
+	alternate-normal-background: var(lightbg);
+	selected-urgent-background:  var(magenta);
+	selected-urgent-foreground:  var(background);
+	normal-foreground:           var(foreground);
+	alternate-urgent-foreground: var(magenta);
 }
 
-/* Difine el uso del 100% de la pantalla con una opacidad de 60/255 */
 window {
-	transparency: "real";
-	background-color: @Background;
-	text-color: @Foreground;
+	padding: 0;
+	background-color: #00000060;
 	border: 0;
-	border-radius: 0;
+	z-index: -1;
 	width: 100%;
 	height: 100%;
-	location: center;
-	x-offset: 0;
-	y-offset: 0;
 }
 
-/* Define las propiedades de la barra de busqueda */
-entry {
-	background-color: @Transparent;
-	text-color: @Foreground;
-	placeholder-color: @Foreground;
-	expand: true;
-	horizontal-align: 0;
-	placeholder: "";
-	padding: 0.15% 0% 0% 0%;
-	blink: true;
-}
-inputbar {
-	children: [ entry ];
-	background-color: @Transparent;
-	text-color: @Foreground;
-	expand: false;
-	border: 0%;
-	margin: 0;
-	padding: 1%;
-	position: center;
+mainbox {
+	border: 0;
+	padding: 10% 12%;
+	children: [listview];
 }
 
-/* Define la cantidad maxima de lementos a mostrar por hoja */
+element {
+	padding: 2% 1%;
+	spacing: 5px ;
+	border: 0;
+	cursor: pointer;
+	border-radius: 11px;
+	orientation: vertical;
+}
+element normal.normal,
+element alternate.normal {
+	background-color: var(normal-background);
+	text-color:	   var(normal-foreground);
+}
+element normal.urgent,
+element alternate.urgent {
+	background-color: var(urgent-background);
+	text-color:	   var(urgent-foreground);
+}
+element normal.active,
+element alternate.active {
+	background-color: var(active-background);
+	text-color:	   var(active-foreground);
+}
+element selected.normal {
+	background-color: var(selected-normal-background);
+	text-color:	   var(selected-normal-foreground);
+}
+element selected.urgent {
+	background-color: var(selected-urgent-background);
+	text-color:	   var(selected-urgent-foreground);
+}
+element selected.active {
+	background-color: var(selected-active-background);
+	text-color:       var(selected-active-foreground);
+}
+element-text {
+	text-color:       inherit;
+	highlight:        inherit;
+	cursor:           inherit;
+}
+element-icon {
+	size:             96px;
+	text-color:       inherit;
+	cursor:           inherit;
+}
 listview {
-	background-color: @Transparent;
-	columns: 4;
-	lines: 9;
-	spacing: 1%;
+	columns: 8;
+	fixed-height: 0;
 	cycle: true;
 	dynamic: true;
 	layout: vertical;
 }
-
-/* Define lo que muestra rofi */
-mainbox {
-	background-color: @Background;
-	border: 0;
-	border-radius: 0% 0% 0% 0%;
-	border-color: @Base;
-	children: [ inputbar, listview ];
-	spacing: 2%;
-	padding: 5% 6%;
+button {
+	spacing:    0;
+	text-color: var(normal-foreground);
+	cursor:     pointer;
 }
-
-/* Define el color de los elementos */
-element {
-	background-color: @Transparent;
-	text-color: @Foreground;
-	orientation: horizontal;
-	border-radius: 0%;
-	padding: 1% 0% 1% 0%;
+button selected {
+	background-color: var(selected-normal-background);
+	text-color:       var(selected-normal-foreground);
 }
-element-icon {
-	background-color: @Transparent;
-	size: 48px;
-	margin: 0.5%;
-}
-element-text {
-	background-color: @Transparent;
-	horizontal-align: 0;
-	text-color: @Foreground;
-	expand: true;
-	vertical-align: 0.5;
-}
-element normal.urgent,
-element alternate.urgent {
-	background-color: @Urgent;
-	text-color: @Foreground;
-	border-radius: 1%;
-}
-
-/* Define el color de los elementos seleccionados */
-element normal.active,
-element alternate.active {
-	background-color: @Transparent;
-	text-color: @Foreground;
-}
-element selected {
-	background-color: @Base;
-	text-color: @Foreground;
-	border: 0%;
-}
-element-icon selected {
-	background-color: @Transparent;
-}
-element-text selected {
-	background-color: @Transparent;
-	text-color: @Foreground;
-	expand: true;
-	horizontal-align: 0.5;
-	vertical-align: 0.5;
-	margin: 0.5% 1% 0% 1%;
-}
-element selected.urgent {
-	background-color: @Urgent;
-	text-color: @Foreground;
-}
-element selected.active {
-	background-color: @Transparent;
-	color: @Foreground;
+case-indicator {
+	spacing:    0;
+	text-color: var(normal-foreground);
 }

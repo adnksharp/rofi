@@ -1,12 +1,12 @@
 dir="$HOME/.config/rofi/"
-theme="base"
+theme="dark"
 
-shutdown=""
-reboot=""
-lock=""
+shutdown=" Shut Down"
+reboot=" Restart"
+lock=" Lock"
 
 rofi_cmd(){
-	rofi -dmenu -p "Powermenu" -theme $dir/"$theme".rasi -mesg "Select an option"
+	rofi -dmenu -p "Powermenu" -theme $dir/"$theme".rasi
 }
 
 run_rofi() {

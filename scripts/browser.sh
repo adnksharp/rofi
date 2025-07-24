@@ -1,5 +1,5 @@
 dir="$HOME/.config/rofi"
-theme="browser"
+theme="cyberpunk"
 
 canva="Canva\0icon\x1f~/OneDrive/Documentos/Configuraciones/Iconos/canva.ico"
 deviantart="Deviantart\0icon\x1f~/OneDrive/Documentos/Configuraciones/Iconos/deviantart.ico"
@@ -28,46 +28,46 @@ run_rofi() {
 chosen="$(run_rofi)"
 case $chosen in
 	"Canva")
-		google-chrome-stable --app=https://www.canva.com/
+		brave --app=https://www.canva.com/
 		;;
 	"Deviantart")
-		google-chrome-stable --app=https://www.deviantart.com/
+		brave --app=https://www.deviantart.com/
 		;;
 	"One Drive")
-		google-chrome-stable --app=https://onedrive.live.com/
+		brave --app=https://onedrive.live.com/
 		;;
 	"Facebook")
-		google-chrome-stable --app=https://www.facebook.com/
+		brave --app=https://www.facebook.com/
 		;;
 	"Github")
 		brave --app=https://github.com
 		;;
 	"Instagram")
-		google-chrome-stable --app=https://www.instagram.com/
+		brave --app=https://www.instagram.com/
 		;;
 	"Linkedin")
-		google-chrome-stable --app=https://www.linkedin.com/feed/
+		brave --app=https://www.linkedin.com/feed/
 		;;
 	"Mercado Libre")
-		google-chrome-stable --app=https://www.mercadolibre.com.mx/
+		brave --app=https://www.mercadolibre.com.mx/
 		;;
 	"PartQuest")
-		google-chrome-stable --app=https://us-east-1.app.portal.partquest.com/
+		brave --app=https://us-east-1.app.portal.partquest.com/
 		;;
 	"Paypal")
-		google-chrome-stable --app=https://www.paypal.com/mx/home
+		brave --app=https://www.paypal.com/mx/home
 		;;
 	"Spotify")
 		brave --app=https://open.spotify.com/
 		;;
 	"Tinkercad")
-		google-chrome-stable --app=https://www.tinkercad.com/
+		brave --app=https://www.tinkercad.com/
 		;;
 	"Twitter")
-		google-chrome-stable --app=https://twitter.com/
+		brave --app=https://twitter.com/
 		;;
 	"Whatsapp")
-		google-chrome-stable --app=https://web.whatsapp.com/
+		brave --app=https://web.whatsapp.com/
 		;;
 	"Youtube")
 		brave --app=https://www.youtube.com/
